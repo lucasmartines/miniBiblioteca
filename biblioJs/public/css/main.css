@@ -1,0 +1,156 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Open Sans' , sans-serif;
+}
+.header{
+    height:224;
+    width:100%;
+    background-color:#473d5b;
+    position: relative;
+}
+.header h1{
+    font-size:40px;
+    font-weight: 400;
+    position: absolute;
+    left:56px;
+    bottom: 20px;
+    font-family:'Open Sans', sans-serif;
+    color:white;
+}
+.apresentação{
+    background-color:white;color:#222;margin-top:30px;
+    margin-left:50px;
+    margin-bottom:50px;
+}
+.updateButton
+{
+    margin-left:300px;
+   
+    right:0px;
+}
+.container{
+    width:800px;
+    height:auto;
+    margin:auto;
+   
+}
+.container h2{
+    margin-top:20px;
+}
+.center{
+    text-align:center;
+    margin:auto;
+    width:100%;
+}
+footer{
+    height:100px;
+    color:white;
+    background-color: #473d5b;
+    margin-top:30px;
+}
+.main-bar{
+    width:100%;
+    height:auto;
+    padding:10px ;
+}
+.main-bar::after{
+    content:' ';
+    clear:both;
+    display:table;
+ 
+}
+.main-bar li {
+    padding: 10px 20px;
+    float:left;
+    border-radius: 10px;
+
+    font-style:none;
+    list-style: none;
+}
+.Img{
+    max-width: 150px;
+}
+.main-bar li a {
+    text-decoration: none;
+    color:white;
+    display:block;
+}
+.botao-livro{
+    padding:5px;
+    background-color: #473d5b;
+    color:white;
+    border-radius: 8px;
+    float:left;
+}
+.main-bar{
+    
+
+    height:auto;
+}
+#mostrar-livros{
+    position: relative;
+    right:0;
+    margin-top:20px;
+    width:66%;
+    float:right;
+  
+}
+#mostrar-livros h1{
+    height: 50px;
+    margin-top:50px;
+}
+.clearfix::after{
+    content:' ';
+    clear:both;
+    display:table;
+}
+.container::after{
+    content:' ';
+    clear:both;
+    display:table;
+}
+.book-bar{
+    float:left;
+    position: relative;
+    width:30%;
+  
+}
+.book-bar h2{
+    padding:20px;
+    color:white;
+    background-color: #473d5b;
+    font-weight: 400;
+}
+.book-bar li a{
+    
+    background-color: #f1f2f3;
+    color:#000;
+    text-decoration: none;    
+    display:block;
+    padding: 20px;
+}
+.book-bar li {
+/*  width:200px; */
+    background-color: black;
+    font-style:none;
+    list-style: none;
+    text-align:center;
+}
+
+.book-bar::after{
+    content:' ';
+    clear:both;
+    display:table;
+}
+
+.book h3{
+    font-weight: 400;
+    
+
+}
+.nomargin{
+    margin:0;
+
+}

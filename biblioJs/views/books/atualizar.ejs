@@ -1,0 +1,59 @@
+
+<html>
+        <% include ../mini/header %>
+       
+        
+        
+        <div class="container clearfix" >
+            <% include ../mini/book-bar %>
+
+           
+            <form style="float:left" method="post" action="/api/livros/update">
+
+                <!-- <input type="hidden" name="_method" value="put" />    -->
+                <input id="id" hidden=true name="_id" value = <%= _id %> />
+                <p> Quantidades </p><input id = "qtd"name="quantidade" type="input" value=<%= qtd %>   <br>  
+                <p> Nome do Livro </p><input id="name" name="nome" type="input"  value=<%= nome %>   <br>
+                <p> Link da imagem do livro </p><input id="url" name="url_imagem" type="input" value=<%= url %>  /> <br>
+                <p> Categoria do Livro</p><input id="genero" name="genero" type="input" value=<%= genero %>  /> <br>
+                <input class="updateButton" id="Update" type="submit" value="Atualizar Livro">
+
+            </form>
+ 
+        
+        </div>
+        
+        <script>
+        /*
+             $(document).ready(function(){
+             $("#Update").click(function()
+             {
+                 var qtd = $('#qtd').value;
+                 var url = $("#url").value;
+                 var genero = $('#genero').value;
+                 var _id = $("#id").value;
+                 var nome = $("nome").value;
+
+                 var meusDados = { quantidade:qtd, nome:nome,genero:genero,id_update:_id, url_imagem:url }
+                 $.ajax(
+                     {
+                         url:"/api/livros",
+                         type:'PUT',
+                         headers: {"X-HTTP-Method-Override": "PUT"}, // X-HTTP-Method-Override set to PUT.
+                         data: meusDados,
+                         success:function(data){
+                             alert("Atualizado");
+                         }
+                     }
+                 )
+                 console.log('Test');
+
+             })
+            })
+             */
+        </script>
+        
+        <% include ../mini/footer %>
+        </html>
+
+

@@ -1,0 +1,165 @@
+<html>
+<% include ../mini/header %>
+
+<div class="container clearfix" >
+    
+  
+<div class="livros">
+   
+
+
+    <div id="mostrar-livros">
+           
+    </div>
+    <% include ../mini/book-bar %>
+</div>
+</div>
+
+<script>
+
+    $(document).ready(function(){
+
+        $.get
+        ({
+            url:'/api/livros',
+            success:function(response)
+            {                 
+                livros =  response.Message;
+                
+                console.log(livros);
+                
+                //console.log(livros.length);
+                
+                for( var c = 0 ; c < livros.length ; c++){
+                    var nome = livros[c].nome;
+                    var url_imagem = livros[c].url_imagem;
+                    var quantidade = livros[c].quantidade;
+                    var categoria = livros[c].genero;
+
+
+                        // nome imagem
+                    var eNome = document.createElement("h3");
+                    eNome.className = "Nome";
+                    eNome.innerHTML =  nome;
+                        // imagem url
+                    var eImg = document.createElement("img");
+                    eImg.className = "Img";
+                    eImg.src = url_imagem ;
+                        // quantidade
+                    var eQuantidade = document.createElement("p");
+                    eQuantidade.className = "Quantidade";
+                    eQuantidade.innerHTML = "Quantidade " + quantidade;
+                        //categoria
+                    var eCategoria = document.createElement("p");
+                    
+                    if( categoria == undefined){
+                        categoria = "Sem Categoria";//Extra steps for aufs
+                    }
+                    eCategoria.innerHTML = "Categoria " + categoria;
+                    
+
+                   //=== elementos invisiveis ======= elementos invisiveis //
+
+                    ///////////////////////////////////////////////////Extra steps for aufs
+                    // elementos input para atualizar o livro
+                    //////////////////////////////////////////////////
+                    var LinkToUpdate = document.createElement('form');
+                    LinkToUpdate.method = "post";
+                    LinkToUpdate.action = "/atualizarLivro" ;
+                    /*criar o botão de atualizar*/
+                    var buttonToUpdate = document.createElement('input');
+                    buttonToUpdate.type = "submit";
+                    buttonToUpdate.value = "Atualizar Livro";
+                    buttonToUpdate.className = "botao-livro";
+                     ///////////////////////////////////////////////////
+                    // elementos input para DELETAR o livro
+                    //////////////////////////////////////////////////
+                    // AQUISIÇÃO DOS ELEMENTOS delete PARA ENVIO DE FORMULARIO /deletarLivro
+                    
+                    var LinkToDelete = document.createElement('form');
+                    LinkToDelete.method = "post";
+                    LinkToDelete.action = "/api/livros/delete" ;
+                    
+                    var buttonToDelete = document.createElement('input');
+                    buttonToDelete.type = "submit";
+                    buttonToDelete.value = "Deletar Livro";
+                    buttonToDelete.className = "botao-livro";
+                  
+                  
+                  
+                  //buttonToDelete.style.backgroundColor = 'red';
+
+                    var id_Delete = document.createElement('input');
+                    id_Delete.name = "_id";
+                    id_Delete.hidden = true;
+                    id_Delete.value = livros[c]._id;
+
+
+
+                    
+
+                    // AQUISIÇÃO DOS ELEMENTOS UPDATE PARA ENVIO DE FORMULARIO /atualizarLivro
+                    var id_update = document.createElement('input');
+                    id_update.name = "_id";
+                    id_update.hidden = true;
+                    id_update.value = livros[c]._id;
+                    
+                   
+                    var url_imagem = document.createElement('input');
+                    url_imagem.name = "url_imagem";
+                    url_imagem.hidden = true;
+                    url_imagem.value = livros[c].url_imagem;
+
+                    var quantidade = document.createElement('input');
+                    quantidade.name = "quantidade";
+                    quantidade.hidden = true;
+                    quantidade.value = livros[c].quantidade;
+                    
+                    var nome = document.createElement('input');
+                    nome.name = "nome";
+                    nome.hidden = true;
+                    nome.value = livros[c].nome;
+                    
+                    var genero = document.createElement('input');
+                    genero.name = "genero";
+                    genero.hidden = true;
+                    genero.value = livros[c].genero;
+                    
+                    console.log(id_update.value);
+                    
+                    // INFORMAÇÕES A SEREM ENVIADAS PARA O VIEWER DO UPDATE
+
+                    LinkToUpdate.appendChild ( buttonToUpdate ) ;
+                    LinkToUpdate.appendChild ( id_update ) ; 
+                    LinkToUpdate.appendChild ( url_imagem ) ; 
+                    LinkToUpdate.appendChild ( quantidade ) ; 
+                    LinkToUpdate.appendChild ( nome ) ; 
+                    LinkToUpdate.appendChild ( genero ) ; 
+                   
+                   
+                    LinkToDelete.append(buttonToDelete);    
+                    LinkToDelete.append(id_Delete); 
+                    
+                    var HR = document.createElement('hr');
+
+                        // cria uma div para os botões
+                    var DivButton = document.createElement('div');
+                        DivButton.append(LinkToUpdate,LinkToDelete);
+                        DivButton.className = "clearfix";
+                        // cria uma div para o livro
+                    var DivLivro = document.createElement('div');
+                        DivLivro.className="book clearfix";
+                        DivLivro.append(eNome,eImg,eQuantidade,eCategoria,DivButton,HR);
+                    
+                    $('#mostrar-livros').append( DivLivro );
+
+                }
+
+                
+            }   
+        })
+    });
+</script>
+
+<% include ../mini/footer %>
+</html>
