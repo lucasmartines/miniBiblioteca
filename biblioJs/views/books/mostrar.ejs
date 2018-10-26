@@ -7,9 +7,10 @@
 <div class="livros">
    
 
-
     <div id="mostrar-livros">
            
+        <img id="carregando"  src="/img/loader.gif"/>
+            
     </div>
     <% include ../mini/book-bar %>
 </div>
@@ -22,8 +23,15 @@
         $.get
         ({
             url:'/api/livros',
+            beforeSend: function( ){
+                $('#carregando').show();
+            },
+            complete: function(){
+                $('#carregando').hide();
+            },
             success:function(response)
             {                 
+                
                 livros =  response.Message;
                 
                 console.log(livros);

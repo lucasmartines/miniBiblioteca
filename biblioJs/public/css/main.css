@@ -89,6 +89,11 @@ footer{
 
     height:auto;
 }
+#carregando{
+    position:fixed;
+    top: 50%;
+    left:50%;
+}
 #mostrar-livros{
     position: relative;
     right:0;
