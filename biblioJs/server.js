@@ -37,7 +37,7 @@ app.get('/livros',(req,res)=>
 })
 
 */
-app.listen(3000,()=>{
+app.listen(80,()=>{
     console.log("Rodando na porta 3000 ");
 })
 module.exports = app;
