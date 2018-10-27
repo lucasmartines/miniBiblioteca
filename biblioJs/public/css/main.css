@@ -5,7 +5,7 @@
     font-family: 'Open Sans' , sans-serif;
 }
 .header{
-    height:224;
+    height:20vh;
     width:100%;
     background-color:#473d5b;
     position: relative;
@@ -22,12 +22,14 @@
 .apresentação{
     background-color:white;color:#222;margin-top:30px;
     margin-left:50px;
+    margin-right:50px;
     margin-bottom:50px;
+    height: 35vh;
 }
+
 .updateButton
 {
-    margin-left:300px;
-   
+    margin-left:300px;   
     right:0px;
 }
 .container{
@@ -59,15 +61,24 @@ footer{
     content:' ';
     clear:both;
     display:table;
- 
+
 }
-.main-bar li {
+.main-bar li a{
+    display:block;
     padding: 10px 20px;
+
+} 
+.main-bar li {
+
     float:left;
     border-radius: 10px;
-
     font-style:none;
     list-style: none;
+
+}
+
+.main-bar li:hover  {
+    border: white solid 1px;
 }
 .Img{
     max-width: 150px;
@@ -75,7 +86,6 @@ footer{
 .main-bar li a {
     text-decoration: none;
     color:white;
-    display:block;
 }
 .botao-livro{
     padding:5px;
@@ -83,6 +93,11 @@ footer{
     color:white;
     border-radius: 8px;
     float:left;
+}
+.botao-livro:hover{
+    padding:5px;
+    background-color: #773d5b;
+
 }
 .main-bar{
     
@@ -100,7 +115,8 @@ footer{
     margin-top:20px;
     width:66%;
     float:right;
-  
+    height: 80vh;
+    overflow: auto;
 }
 #mostrar-livros h1{
     height: 50px;
@@ -135,6 +151,12 @@ footer{
     text-decoration: none;    
     display:block;
     padding: 20px;
+}
+.book-bar li a:hover{
+    
+    background-color: #111;
+    color:#f1f1f1;
+
 }
 .book-bar li {
 /*  width:200px; */
